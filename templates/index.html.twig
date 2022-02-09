@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<a href="{{ path('teste')}}"><button type="submit">TEste Api</button></a>
+    <h1 class="test1">Choix du jeu</h1>
+    
+    <div class="containerMain">
+            {% for data in datas %}
+                <div class="titre">
+                    <a href="{{ path('choice',{'id':data.id} ) }}"><img src="{{asset(data.img)}}">
+                    <h2>{{ data.name }}</h2></a>
+                </div>
+            {% endfor %}
+    </div>
+    
+{% endblock %}

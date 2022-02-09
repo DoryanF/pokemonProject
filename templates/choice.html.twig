@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<a href="{{ path('index')}}"><button type="submit">Retour</button></a>
+    <div class="en-tete">
+        <img src="{{asset(jeux.img)}}">
+        <div class="jeuName">{{ jeux.name }}</div>
+    </div>
+    {# <section class="container">
+        <h2>Liste des Pokémons</h2>
+        {% for pokemon in pokemons %}
+            <div class="pokemons">
+                {{pokemon.name}}
+            </div>
+        {% endfor %}
+    </section> #}
+    
+{% endblock %}

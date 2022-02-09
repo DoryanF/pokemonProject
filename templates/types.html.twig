@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1 class="test1">Liste des types</h1>
+    <div class="container">
+        {% for type in types %}
+                <div class="titre">
+                    <h2>{{ type.name }}</h2>
+                </div>
+        {% endfor %}
+    </div>    
+{% endblock %}
