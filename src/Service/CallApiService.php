@@ -122,6 +122,7 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
+        return $arrayOfData['sprites']["front_default"];
     }
 
     public function getPkdex(): array

@@ -6,13 +6,18 @@
         <img src="{{asset(jeux.img)}}">
         <div class="jeuName">{{ jeux.name }}</div>
     </div>
-    {# <section class="container">
+    <section class="container">
         <h2>Liste des Pokémons</h2>
         {% for pokemon in pokemons %}
             <div class="pokemons">
-                {{pokemon.name}}
+                <h2>{{pokemon.name}}</h2>
             </div>
         {% endfor %}
-    </section> #}
+        {% for sprite in sprites %}
+            <div class="pokemons-sprite">
+            <img src={{sprite}}>
+            </div>
+        {% endfor %}
+    </section>
     
 {% endblock %}
