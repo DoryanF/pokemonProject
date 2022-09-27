@@ -49,7 +49,7 @@ class IndexController extends AbstractController
         // set_time_limit(0);
         // $datas = $callApiService->getPkdex();
         // $manager = $this->getDoctrine()->getManager();
-        // // dd($datas);
+        // dd($datas);
         // foreach ($datas as $data) {
         //     $pokemon = new Pokemons();
         //     $pokemon->setName($data["name"]);

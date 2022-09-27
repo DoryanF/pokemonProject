@@ -1,3 +1,88 @@
-body {
-    background-color: red;
+@font-face {
+    font-family: "Font Pokemon";
+    src: url('Pokemon Solid.ttf');
 }
+@font-face {
+    font-family: "Font Pokemon2";
+    src: url('Pokemon Hollow.ttf');
+}
+
+body
+{
+    background-color: lightgray;
+}    
+body .test1
+{
+    text-align: center;
+    font-family: "Font Pokemon";
+    color: blue;
+    text-decoration: underline yellow 5px;
+}
+
+.containerMain
+{
+    display:grid;
+    grid-template-columns: auto auto auto;
+}
+.containerMain .titre
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.containerMain h2{
+    margin-right: auto;
+    text-align: center;
+}
+
+.containerMain img
+{
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+}
+        
+.en-tete
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.en-tete img
+{
+    width: 250px;
+    height: 250px;
+}
+.en-tete .jeuName
+{
+    font-size: x-large;
+    text-decoration: underline;
+}
+
+.container h2
+{
+    text-align: center;
+}
+
+/***Page Choice***/
+.allPkmns{
+    display: flex;
+    flex-direction: column;
+}
+.pokemons{
+    position: static;
+    height: 50px;
+    display: flex;
+    margin-bottom: 2%;
+}
+.pokemons-sprite{
+    position: absolute;
+    display: flex;
+    padding: 1em;
+    top: ;
+    bottom: 10%;
+}
+
+
+/***Fin Page Choice***/

@@ -33,6 +33,11 @@ class Pokemons
      */
     private $pokedexs;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sprites;
+
     public function __construct()
     {
         $this->pokedexs = new ArrayCollection();
@@ -75,6 +80,18 @@ class Pokemons
     public function removePokedex(Pokedex $pokedex): self
     {
         $this->pokedexs->removeElement($pokedex);
+
+        return $this;
+    }
+
+    public function getSprites(): ?string
+    {
+        return $this->sprites;
+    }
+
+    public function setSprites(?string $sprites): self
+    {
+        $this->sprites = $sprites;
 
         return $this;
     }

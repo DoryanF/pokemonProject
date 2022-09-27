@@ -8,16 +8,17 @@
     </div>
     <section class="container">
         <h2>Liste des Pokémons</h2>
-        {% for pokemon in pokemons %}
-            <div class="pokemons">
-                <h2>{{pokemon.name}}</h2>
-            </div>
-        {% endfor %}
-        {% for sprite in sprites %}
-            <div class="pokemons-sprite">
-            <img src={{sprite}}>
-            </div>
-        {% endfor %}
+        <div class="allPkmns">
+            {% for pokemon in pokemons %}
+                <div class="pokemons">
+                    <img src="{{ pokemon.sprites }}">
+                    <p>{{pokemon.name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <button>Crée équipe</button>
+
+        <div class="equipe"></div>
     </section>
     
 {% endblock %}
