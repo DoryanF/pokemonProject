@@ -68,6 +68,7 @@ class CallApiService
             $url
         );
         $arrayOfData = $response->toArray();
+        // dd($arrayOfData);
         return $arrayOfData['version_group']['url'];
     }
 
@@ -79,8 +80,10 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        $pokedexes = $arrayOfData['pokedexes'][0];
-        return $pokedexes['url'];
+        // dd($arrayOfData);
+        $pokedexes = $arrayOfData['pokedexes'];
+        // dd($pokedexes);
+        // return $pokedexes['url'];
     }
 
     public function getPokemons(string $urlPokedex)

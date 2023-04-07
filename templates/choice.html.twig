@@ -13,6 +13,7 @@
                 <div class="pokemons">
                     <img src="{{ pokemon.sprites }}">
                     <p>{{pokemon.name}}</p>
+                    <a href="{{ path('equipe', {'id':pokemon.id})}}"><button>Selectionner</button></a>
                 </div>
             {% endfor %}
         </div>

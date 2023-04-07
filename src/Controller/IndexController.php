@@ -22,12 +22,6 @@ class IndexController extends AbstractController
     {
         $manager = $this->getDoctrine()->getManager();
         $data = $jeuPkmn->findAll();
-        // foreach ($data as $pokemon) {
-        //     dd($pokemon->setName($callApiService->getLanguage($pokemon->getApiUrl())));
-        //     $manager->persist($pokemon);
-        //     $manager->flush();
-        // }
-
 
        return $this->render("index.html.twig",[
            "datas" => $jeuPkmn->findAll()
