@@ -1,5 +1,26 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+    {# <div>
+        <img src="{{ pokemon.sprites }}">
+        <div>{{pokemon.name}}</div>
+    </div> #}
 
+    <h1>Création Équipe</h1>
+
+    {{ form_start(form) }}
+       {{ form_errors(form) }}
+       <div>
+            {{ form_label(form.Pkmn1) }}
+            {{ form_errors(form.Pkmn1) }}
+            {{ form_widget(form.Pkmn1) }}
+       </div>
+       <div>
+            {{ form_label(form.Jeux) }}
+            {{ form_errors(form.Jeux) }}
+            {{ form_widget(form.Jeux) }}
+       </div>
+        <button type="submit">Ajouter</button>
+    {{ form_end(form) }}
+    <a href="{{ path('index')}}"><button type="submit">Retour</button></a>
 {% endblock %}

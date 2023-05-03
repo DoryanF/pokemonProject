@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\JeuxPkmn;
-use App\Entity\Pokedex;
 use App\Entity\Pokemons;
 use App\Repository\JeuxPkmnRepository;
 use App\Repository\PokedexRepository;
@@ -15,12 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ChoiceController extends AbstractController
 {
     #[Route('/{id}', name: 'choice')]
-    public function listPokemon($id,JeuxPkmnRepository $jeuxPkmnRepository, CallApiService $callApiService, Pokedex $pokedex, Pokemons $pokemons)
+    public function listPokemon($id,JeuxPkmnRepository $jeuxPkmnRepository, CallApiService $callApiService)
     {
         
         $jeu = $jeuxPkmnRepository->findOneBy(["id"=>$id]);
-        // dd($pokedex->getPokemons()->getValues());
-        $pokedexJeu = $jeu->getPokedex();
+        $pokedexJeu = $jeu->getPokedex()->getPokemons()->getValues();
 
         // dd($pokedexJeu);
         // $pokemonss = $pokedex->getPokemons()->getValues();
@@ -31,23 +29,14 @@ class ChoiceController extends AbstractController
         //         $this->getDoctrine()->getManager()->flush();
         //     }
         // }
+        
         $urlVersionGroup = $callApiService->getVersionGroup($jeu->getApiUrl());
         $pokedexTest = $callApiService->getPokedex($urlVersionGroup);
-        // dd($pokedexTest);
-        // dd($urlVersionGroup);
 
         return $this->render('choice.html.twig',[
-            "jeux" => $jeuxPkmnRepository->findOneBy(["id"=>$id]),
-            "pokemons" => $pokedex->getPokemons()->getValues(),
+            "jeux" => $jeu,
+            "pokemons" => $pokedexJeu,
         ]);
     }
 
-    // #[Route('/equipe/{id}', name: 'equipe')]
-    // public function equipePokemon($id)
-    // {
-    //      dd('coucou');
-
-
-    //     return $this->render('equipe.html.twig',[]);
-    // }
 }

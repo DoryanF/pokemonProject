@@ -1,7 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<a href="{{ path('teste')}}"><button type="submit">TEste Api</button></a>
+<a href="{{ path('teste')}}"><button type="submit">Teste Api</button></a>
+<a href="{{ path('creation_equipe') }}"><button type="submit">Création d'équipe</button></a>
     <h1 class="test1">Pokéquipe</h1>
     
     <div class="containerMain">
@@ -12,5 +13,6 @@
                 </div>
             {% endfor %}
     </div>
+<a href=""><button type="submit">Création d'équipe</button></a>
     
 {% endblock %}

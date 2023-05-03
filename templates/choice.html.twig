@@ -13,11 +13,11 @@
                 <div class="pokemons">
                     <img src="{{ pokemon.sprites }}">
                     <p>{{pokemon.name}}</p>
-                    <a href="{{ path('equipe', {'id':pokemon.id})}}"><button>Selectionner</button></a>
+                    {# <a href="{{ path('equipe', {'id':pokemon.id})}}"><button>Selectionner</button></a> #}
                 </div>
             {% endfor %}
         </div>
-        <button>Crée équipe</button>
+        {# <a href="{{ path('createEquipe') }}"><button>Crée équipe</button></a> #}
 
         <div class="equipe"></div>
     </section>
