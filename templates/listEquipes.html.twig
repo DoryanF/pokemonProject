@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Listes des Équipes</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Equipe</th>
+                    <th>Pokemon 1</th>
+                    <th>Pokemon 2</th>
+                    <th>Pokemon 3</th>
+                    <th>Pokemon 4</th>
+                    <th>Pokemon 5</th>
+                    <th>Pokemon 6</th>
+                      
+                </tr>
+            </thead>
+            <tbody>
+            {% for Equipe in listEquipes %}
+                {# {% for Sprite in tableauSprite %} #}
+                    
+                
+                <tr>
+                    <td>{{Equipe.id}}</td>
+                    <td>{{Equipe.Pokemon1}}{#<img src="{{Sprite.sprites}}">#}</td> 
+                    <td>{{Equipe.Pokemon2}}</td>
+                    <td>{{Equipe.Pokemon3}}</td>
+                    <td>{{Equipe.Pokemon4}}</td>
+                    <td>{{Equipe.Pokemon5}}</td>
+                    <td>{{Equipe.Pokemon6}}</td>
+                </tr>
+                {% endfor %}
+            {# {% endfor %} #}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('index') }}"><button type="submit">Retour</button></a>
+    <a href="{{ path('creation_equipe') }}"><button type="submit">Créer Equipe</button></a>
+{% endblock %}

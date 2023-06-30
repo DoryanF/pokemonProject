@@ -38,17 +38,7 @@ class JeuxPkmn
      */
     private $pokedex;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Equipes::class, mappedBy="Jeux")
-     */
-    private $equipes;
 
-
-
-    public function __construct()
-    {
-        $this->equipes = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -87,33 +77,6 @@ class JeuxPkmn
     public function setPokedex(?Pokedex $pokedex): self
     {
         $this->pokedex = $pokedex;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Equipes[]
-     */
-    public function getEquipes(): Collection
-    {
-        return $this->equipes;
-    }
-
-    public function addEquipe(Equipes $equipe): self
-    {
-        if (!$this->equipes->contains($equipe)) {
-            $this->equipes[] = $equipe;
-            $equipe->addJeux($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEquipe(Equipes $equipe): self
-    {
-        if ($this->equipes->removeElement($equipe)) {
-            $equipe->removeJeux($this);
-        }
 
         return $this;
     }

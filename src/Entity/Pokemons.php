@@ -38,16 +38,12 @@ class Pokemons
      */
     private $sprites;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Equipes::class, mappedBy="Pkmn1")
-     */
-    private $equipes;
+
 
 
     public function __construct()
     {
         $this->pokedexs = new ArrayCollection();
-        $this->equipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,31 +99,8 @@ class Pokemons
         return $this;
     }
 
-    /**
-     * @return Collection|Equipes[]
-     */
-    public function getEquipes(): Collection
+    public function __toString()
     {
-        return $this->equipes;
+        return $this->name;
     }
-
-    public function addEquipe(Equipes $equipe): self
-    {
-        if (!$this->equipes->contains($equipe)) {
-            $this->equipes[] = $equipe;
-            $equipe->addPkmn1($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEquipe(Equipes $equipe): self
-    {
-        if ($this->equipes->removeElement($equipe)) {
-            $equipe->removePkmn1($this);
-        }
-
-        return $this;
-    }
-
 }

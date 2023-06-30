@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EquipesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,73 +18,109 @@ class Equipes
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Pokemons::class, inversedBy="equipes")
+     * @ORM\Column(type="string", length=255)
      */
-    private $Pkmn1;
+    private $Pokemon1;
 
     /**
-     * @ORM\ManyToMany(targetEntity=JeuxPkmn::class, inversedBy="equipes")
+     * @ORM\Column(type="string", length=255)
      */
-    private $Jeux;
+    private $Pokemon2;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon3;
 
-    public function __construct()
-    {
-        $this->Pkmn1 = new ArrayCollection();
-        $this->Jeux = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon4;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon5;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon6;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection|Pokemons[]
-     */
-    public function getPkmn1(): Collection
+    public function getPokemon1(): ?string
     {
-        return $this->Pkmn1;
+        return $this->Pokemon1;
     }
 
-    public function addPkmn1(Pokemons $pkmn1): self
+    public function setPokemon1(string $Pokemon1): self
     {
-        if (!$this->Pkmn1->contains($pkmn1)) {
-            $this->Pkmn1[] = $pkmn1;
-        }
+        $this->Pokemon1 = $Pokemon1;
 
         return $this;
     }
 
-    public function removePkmn1(Pokemons $pkmn1): self
+    public function getPokemon2(): ?string
     {
-        $this->Pkmn1->removeElement($pkmn1);
+        return $this->Pokemon2;
+    }
+
+    public function setPokemon2(string $Pokemon2): self
+    {
+        $this->Pokemon2 = $Pokemon2;
 
         return $this;
     }
 
-    /**
-     * @return Collection|JeuxPkmn[]
-     */
-    public function getJeux(): Collection
+    public function getPokemon3(): ?string
     {
-        return $this->Jeux;
+        return $this->Pokemon3;
     }
 
-    public function addJeux(JeuxPkmn $jeux): self
+    public function setPokemon3(string $Pokemon3): self
     {
-        if (!$this->Jeux->contains($jeux)) {
-            $this->Jeux[] = $jeux;
-        }
+        $this->Pokemon3 = $Pokemon3;
 
         return $this;
     }
 
-    public function removeJeux(JeuxPkmn $jeux): self
+    public function getPokemon4(): ?string
     {
-        $this->Jeux->removeElement($jeux);
+        return $this->Pokemon4;
+    }
+
+    public function setPokemon4(string $Pokemon4): self
+    {
+        $this->Pokemon4 = $Pokemon4;
 
         return $this;
     }
 
+    public function getPokemon5(): ?string
+    {
+        return $this->Pokemon5;
+    }
+
+    public function setPokemon5(string $Pokemon5): self
+    {
+        $this->Pokemon5 = $Pokemon5;
+
+        return $this;
+    }
+
+    public function getPokemon6(): ?string
+    {
+        return $this->Pokemon6;
+    }
+
+    public function setPokemon6(string $Pokemon6): self
+    {
+        $this->Pokemon6 = $Pokemon6;
+
+        return $this;
+    }
 }
