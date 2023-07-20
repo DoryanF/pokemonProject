@@ -8,30 +8,47 @@
                 <tr>
                     <th>Equipe</th>
                     <th>Pokemon 1</th>
+                    <th>Sprite 1</th>
                     <th>Pokemon 2</th>
+                    <th>Sprite 2</th>
                     <th>Pokemon 3</th>
+                    <th>Sprite 3</th>
                     <th>Pokemon 4</th>
+                    <th>Sprite 4</th>
                     <th>Pokemon 5</th>
+                    <th>Sprite 5</th>
                     <th>Pokemon 6</th>
+                    <th>Sprite 6</th>
                       
                 </tr>
             </thead>
             <tbody>
             {% for Equipe in listEquipes %}
-                {# {% for Sprite in tableauSprite %} #}
                     
                 
                 <tr>
                     <td>{{Equipe.id}}</td>
-                    <td>{{Equipe.Pokemon1}}{#<img src="{{Sprite.sprites}}">#}</td> 
+
+                    <td>{{Equipe.Pokemon1}}</td>
+                    <td><img src="{{ Equipe.Pokemon1Sprite }}"></td>
+                        
                     <td>{{Equipe.Pokemon2}}</td>
+                    <td><img src="{{ Equipe.Pokemon2Sprite }}"></td>
+
                     <td>{{Equipe.Pokemon3}}</td>
+                    <td><img src="{{ Equipe.Pokemon3Sprite }}"></td>
+
                     <td>{{Equipe.Pokemon4}}</td>
+                    <td><img src="{{ Equipe.Pokemon4Sprite }}"></td>
+
                     <td>{{Equipe.Pokemon5}}</td>
+                    <td><img src="{{ Equipe.Pokemon5Sprite }}"></td>
+                    
                     <td>{{Equipe.Pokemon6}}</td>
+                    <td><img src="{{ Equipe.Pokemon6Sprite }}"></td>
                 </tr>
-                {% endfor %}
-            {# {% endfor %} #}
+            {% endfor %}
+                
             </tbody>
         </table>
     </div>

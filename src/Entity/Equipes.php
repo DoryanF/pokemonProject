@@ -47,6 +47,36 @@ class Equipes
      */
     private $Pokemon6;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon1_Sprite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon2_Sprite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon3_Sprite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon4_Sprite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon5_Sprite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pokemon6_Sprite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +150,78 @@ class Equipes
     public function setPokemon6(string $Pokemon6): self
     {
         $this->Pokemon6 = $Pokemon6;
+
+        return $this;
+    }
+
+    public function getPokemon1Sprite(): ?string
+    {
+        return $this->Pokemon1_Sprite;
+    }
+
+    public function setPokemon1Sprite(string $Pokemon1_Sprite): self
+    {
+        $this->Pokemon1_Sprite = $Pokemon1_Sprite;
+
+        return $this;
+    }
+
+    public function getPokemon2Sprite(): ?string
+    {
+        return $this->Pokemon2_Sprite;
+    }
+
+    public function setPokemon2Sprite(string $Pokemon2_Sprite): self
+    {
+        $this->Pokemon2_Sprite = $Pokemon2_Sprite;
+
+        return $this;
+    }
+
+    public function getPokemon3Sprite(): ?string
+    {
+        return $this->Pokemon3_Sprite;
+    }
+
+    public function setPokemon3Sprite(string $Pokemon3_Sprite): self
+    {
+        $this->Pokemon3_Sprite = $Pokemon3_Sprite;
+
+        return $this;
+    }
+
+    public function getPokemon4Sprite(): ?string
+    {
+        return $this->Pokemon4_Sprite;
+    }
+
+    public function setPokemon4Sprite(string $Pokemon4_Sprite): self
+    {
+        $this->Pokemon4_Sprite = $Pokemon4_Sprite;
+
+        return $this;
+    }
+
+    public function getPokemon5Sprite(): ?string
+    {
+        return $this->Pokemon5_Sprite;
+    }
+
+    public function setPokemon5Sprite(string $Pokemon5_Sprite): self
+    {
+        $this->Pokemon5_Sprite = $Pokemon5_Sprite;
+
+        return $this;
+    }
+
+    public function getPokemon6Sprite(): ?string
+    {
+        return $this->Pokemon6_Sprite;
+    }
+
+    public function setPokemon6Sprite(string $Pokemon6_Sprite): self
+    {
+        $this->Pokemon6_Sprite = $Pokemon6_Sprite;
 
         return $this;
     }
