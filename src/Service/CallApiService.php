@@ -33,11 +33,11 @@ class CallApiService
         return $response->toArray();
     }
 
-    public function getTypePokemon()
+    public function getTypePokemon(string $urlPokemon)
     {
         $response = $this->client->request(
             'GET',
-            'https://pokeapi.co/api/v2/type/?offset=0&limit=18'
+            $urlPokemon
         );
 
         return $response->toArray();
@@ -143,6 +143,20 @@ class CallApiService
         }
         // dd($test);
         return $test;
+    }
+
+
+    public function getMovesPokemon(string $urlPokemon): array
+    {
+        $response = $this->client->request(
+            'GET',
+            $urlPokemon
+        );
+
+        $arrayOfData = $response->toArray();
+        dd($arrayOfData);
+
+        return $arrayOfData;
     }
 
 }

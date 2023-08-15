@@ -11,15 +11,17 @@
         <div class="allPkmns">
             {% for pokemon in pokemons %}
                 <div class="pokemons">
-                    <img src="{{ pokemon.sprites }}">
-                    <p>{{pokemon.name}}</p>
+                    <a href="{{ path('pokemon_details', {'id':pokemon.id})}}">
+                        <img src="{{ pokemon.sprites }}">
+                        <p>{{pokemon.name}}</p>
+                    </a>
                     {# <a href="{{ path('equipe', {'id':pokemon.id})}}"><button>Selectionner</button></a> #}
                 </div>
             {% endfor %}
         </div>
         {# <a href="{{ path('createEquipe') }}"><button>Crée équipe</button></a> #}
 
-        <div class="equipe"></div>
+        
     </section>
     
 {% endblock %}

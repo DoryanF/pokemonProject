@@ -6,10 +6,12 @@
     font-family: "Font Pokemon2";
     src: url('Pokemon Hollow.ttf');
 }
-
+*{
+    font-family: 'Poppins', sans-serif;
+}
 body
 {
-    background-color: lightgray;
+    background-color: rgb(234, 234, 234);
 }    
 body .test1
 {
@@ -34,6 +36,11 @@ body .test1
 .containerMain h2{
     margin-right: auto;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.containerMain a{
+    text-decoration: none;
+    color: #05215d;
 }
 
 .containerMain img
@@ -66,23 +73,27 @@ body .test1
 }
 
 /***Page Choice***/
-.allPkmns{
-    display: flex;
-    flex-direction: column;
+.allPkmns {
+	display: grid;
+	grid-template-columns: auto auto auto;
+    justify-content: space-around;
 }
 .pokemons{
     position: static;
-    height: 50px;
     display: flex;
     margin-bottom: 2%;
 }
-.pokemons-sprite{
+.pokemons a{
+    text-decoration: none;
+    color: #05215d;
+    text-align: center;
+}
+/* .pokemons-sprite{
     position: absolute;
     display: flex;
     padding: 1em;
-    top: ;
     bottom: 10%;
-}
+} */
 
 
 /***Fin Page Choice***/
