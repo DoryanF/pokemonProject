@@ -29,9 +29,7 @@ class ChoiceController extends AbstractController
         //         $this->getDoctrine()->getManager()->flush();
         //     }
         // }
-        
-        $urlVersionGroup = $callApiService->getVersionGroup($jeu->getApiUrl());
-        $pokedexTest = $callApiService->getPokedex($urlVersionGroup);
+        // dd();
 
         return $this->render('choice.html.twig',[
             "jeux" => $jeu,

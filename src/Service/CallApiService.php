@@ -154,9 +154,23 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        dd($arrayOfData);
+        // dd($arrayOfData["moves"]);
 
-        return $arrayOfData;
+        return $arrayOfData["moves"];
     }
 
+    public function getStatesPokemon(string $urlPokemon): array
+    {
+        $response = $this->client->request(
+            'GET',
+            $urlPokemon
+        );
+
+        $arrayOfData = $response->toArray();
+
+        // dd($arrayOfData["stats"]);
+
+
+        return $arrayOfData["stats"];
+    }
 }

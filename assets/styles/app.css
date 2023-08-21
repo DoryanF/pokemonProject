@@ -88,6 +88,9 @@ body .test1
     color: #05215d;
     text-align: center;
 }
+.pokemons p{
+    text-transform: capitalize;
+}
 /* .pokemons-sprite{
     position: absolute;
     display: flex;
@@ -97,3 +100,27 @@ body .test1
 
 
 /***Fin Page Choice***/
+
+/***Pokemon Details***/
+
+.container_pokemon_details{
+    text-align: center;
+}
+.container_pokemon_details img{
+    height: 240px;
+}
+.container_pokemon_details h1{
+    text-transform: capitalize;
+    margin-top: -1.5%;
+}
+.container_pokemon_details h2, h1{
+    text-decoration: underline;
+}
+
+.moves_pokemon_details{
+    display: grid;
+	grid-template-columns: auto auto auto auto;
+}
+.moves_pokemon_details p{
+    text-transform: capitalize;
+}

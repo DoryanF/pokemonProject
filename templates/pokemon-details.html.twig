@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container_pokemon_details">
+    <img src="{{ pokemon.sprites }}">
+    <h1>{{pokemon.name}}</h1>
+
+
+    <h2>Base Stats</h2>
+
+    <p>HP : {{tabStat[0]}}</p>
+    <p>ATK : {{tabStat[1]}}</p>
+    <p>DEF : {{tabStat[2]}}</p>
+    <p>ATK SPÉ : {{tabStat[3]}}</p>
+    <p>DEF SPÉ : {{tabStat[4]}}</p>
+    <p>VIT : {{tabStat[5]}}</p>
+
+
+
+
+    <h2>Moves</h2>
+    <div class="moves_pokemon_details">
+        
+        {% for move in tabMove %}
+            <p>{{move["move"]["name"]}}</p>
+        {% endfor %}
+    </div>
+
+<input type="button" value="RETOUR" onclick="history.go(-1)">
+    
+{# <a href="{{ path('creation_equipe') }}"><button type="submit">Retour</button></a> #}
+</div>
+{% endblock %}

@@ -14,12 +14,21 @@ class PokemonController extends AbstractController
     {
         $pkmn = $pokemonsRepository->findOneBy(["id"=>$id]);
         // dd($pkmn);
-
-        $response = $callApiService->getMovesPokemon($pkmn->getApiUrl());
         
+        //Recupération des Attaques du Pokémon dans l'API
+        $response = $callApiService->getMovesPokemon($pkmn->getApiUrl());
+        //Recupération des Stats du Pokémon dans l'API
+        $responseStat = $callApiService->getStatesPokemon($pkmn->getApiUrl());
 
+        $tableauBaseStats = [];
+        foreach ($responseStat as $state) {
+            $tableauBaseStats[] = $state['base_stat'];
+        }
+        // dd($_ENV);
         return $this->render('pokemon-details.html.twig',[
-            'pokemon' => $pkmn
+            'pokemon' => $pkmn,
+            'tabMove' => $response,
+            'tabStat' => $tableauBaseStats,
         ]);
     }
 }
