@@ -113,6 +113,10 @@ body .test1
     width: 5%;
     height: 100%;
 }
+.container_pokemon_details .stats_abilities_pokemon_details{
+    display: flex;
+    justify-content: space-evenly;
+}
 .container_pokemon_details h1{
     text-transform: capitalize;
     margin-top: -1.5%;

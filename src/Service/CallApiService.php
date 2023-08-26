@@ -176,4 +176,28 @@ class CallApiService
 
         return $arrayOfData["stats"];
     }
+
+    public function getAbilitiesPokemon(string $urlPokemon): array
+    {
+        $response = $this->client->request(
+            'GET',
+            $urlPokemon
+        );
+
+        $arrayOfData = $response->toArray();
+
+        return $arrayOfData["abilities"];
+    }
+
+    public function getEffectAbility(string $urlAbility): array
+    {
+        $response = $this->client->request(
+            'GET',
+            $urlAbility
+        );
+
+        $arrayOfData = $response->toArray();
+        return $arrayOfData["effect_entries"];
+
+    }
 }

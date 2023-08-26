@@ -11,18 +11,24 @@
         <img class="img_Type" src="{{type[1]}}" alt="">
 
     {% endif %}
-    <h2>Base Stats</h2>
+<div class="stats_abilities_pokemon_details">
+    <div>
+        <h2>Base Stats</h2>
 
-    <p>HP : {{tabStat[0]}}</p>
-    <p>ATK : {{tabStat[1]}}</p>
-    <p>DEF : {{tabStat[2]}}</p>
-    <p>ATK SPÉ : {{tabStat[3]}}</p>
-    <p>DEF SPÉ : {{tabStat[4]}}</p>
-    <p>VIT : {{tabStat[5]}}</p>
-
-
-
-
+        <p>HP : {{tabStat[0]}}</p>
+        <p>ATK : {{tabStat[1]}}</p>
+        <p>DEF : {{tabStat[2]}}</p>
+        <p>ATK SPÉ : {{tabStat[3]}}</p>
+        <p>DEF SPÉ : {{tabStat[4]}}</p>
+        <p>VIT : {{tabStat[5]}}</p>
+    </div>
+    <div>
+        <h2>Abilities</h2>
+        {% for ability in tabAbilities %}
+            <p>{{ability}}</p>
+        {% endfor %}
+    </div>
+</div>
     <h2>Moves</h2>
     <div class="moves_pokemon_details">
         

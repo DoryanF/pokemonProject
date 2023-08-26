@@ -16,17 +16,18 @@ class PokemonController extends AbstractController
     {
         $pkmn = $pokemonsRepository->findOneBy(["id"=>$id]);
 
-
+        //Récupération des types du pokemon
         $typeResponse = $callApiService->getTypePokemon($pkmn->getApiUrl());
-        // dd($typeRepository->findAll());
+
+        //création d'un tableau pour stocker les images des types du pkmn
         $imgType = [];
+        //Boucle pour récuperer et stocker les images en fonction du type du pkmn
         foreach($typeResponse as $type)
         {
             $img = $typeRepository->findOneBy(["name"=>$type["type"]["name"]]);
             $imgType[] = $img->getImg();
         }
 
-        // dd($imgType);
 
         //Recupération des Attaques du Pokémon dans l'API
         $response = $callApiService->getMovesPokemon($pkmn->getApiUrl());
@@ -37,12 +38,27 @@ class PokemonController extends AbstractController
         foreach ($responseStat as $state) {
             $tableauBaseStats[] = $state['base_stat'];
         }
-        // dd($_ENV);
+
+
+        $abilitiesResponse = $callApiService->getAbilitiesPokemon($pkmn->getApiUrl());
+
+        $tabAbilities = [];
+
+        foreach ($abilitiesResponse as $abilities)
+        {
+            // dd($abilities["ability"]["name"]);
+            $tabAbilities[] = $abilities["ability"]["name"];
+            // $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
+            // dd($effectAbility[0]["effect"]);
+            // $tabAbilities[] = $effectAbility[1]["effect"];
+        }
+        // dd($tabAbilities);
         return $this->render('pokemon-details.html.twig',[
             'pokemon' => $pkmn,
             'tabMove' => $response,
             'tabStat' => $tableauBaseStats,
-            'type' => $imgType
+            'type' => $imgType,
+            'tabAbilities' => $tabAbilities
         ]);
     }
 }
