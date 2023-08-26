@@ -12,8 +12,14 @@
             {% for pokemon in pokemons %}
                 <div class="pokemons">
                     <a href="{{ path('pokemon_details', {'id':pokemon.id})}}">
-                        <img src="{{ pokemon.sprites }}">
-                        <p>{{pokemon.name}}</p>
+                    {# <div class="card">
+                        <img class="card-img-top" src="{{ pokemon.sprites }}">
+                        <div class="card-body">
+                            <p class="card-text">{{pokemon.name}}</p>
+                        </div>
+                    </div> #}
+                        <img class="card-img-top" src="{{ pokemon.sprites }}">
+                        <p class="card-text">{{pokemon.name}}</p>
                     </a>
                     {# <a href="{{ path('equipe', {'id':pokemon.id})}}"><button>Selectionner</button></a> #}
                 </div>

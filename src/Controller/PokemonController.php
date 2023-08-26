@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Type;
 use App\Repository\PokemonsRepository;
+use App\Repository\TypeRepository;
 use App\Service\CallApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,11 +12,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class PokemonController extends AbstractController
 {
     #[Route('/pokemon/{id}', name: 'pokemon_details')]
-    public function PokemonDetails($id, PokemonsRepository $pokemonsRepository, CallApiService $callApiService)
+    public function PokemonDetails($id, PokemonsRepository $pokemonsRepository, CallApiService $callApiService, TypeRepository $typeRepository)
     {
         $pkmn = $pokemonsRepository->findOneBy(["id"=>$id]);
-        // dd($pkmn);
-        
+
+
+        $typeResponse = $callApiService->getTypePokemon($pkmn->getApiUrl());
+        // dd($typeRepository->findAll());
+        $imgType = [];
+        foreach($typeResponse as $type)
+        {
+            $img = $typeRepository->findOneBy(["name"=>$type["type"]["name"]]);
+            $imgType[] = $img->getImg();
+        }
+
+        // dd($imgType);
+
         //Recupération des Attaques du Pokémon dans l'API
         $response = $callApiService->getMovesPokemon($pkmn->getApiUrl());
         //Recupération des Stats du Pokémon dans l'API
@@ -29,6 +42,7 @@ class PokemonController extends AbstractController
             'pokemon' => $pkmn,
             'tabMove' => $response,
             'tabStat' => $tableauBaseStats,
+            'type' => $imgType
         ]);
     }
 }

@@ -31,7 +31,7 @@ class ChoiceController extends AbstractController
         // }
         // dd();
 
-        return $this->render('choice.html.twig',[
+        return $this->render('pokemons.html.twig',[
             "jeux" => $jeu,
             "pokemons" => $pokedexJeu,
         ]);

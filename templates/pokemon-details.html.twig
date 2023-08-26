@@ -4,8 +4,13 @@
 <div class="container_pokemon_details">
     <img src="{{ pokemon.sprites }}">
     <h1>{{pokemon.name}}</h1>
+        <img class="img_Type" src="{{type[0]}}" alt="">
+    
+    {% if type|length == 2 %}
 
+        <img class="img_Type" src="{{type[1]}}" alt="">
 
+    {% endif %}
     <h2>Base Stats</h2>
 
     <p>HP : {{tabStat[0]}}</p>

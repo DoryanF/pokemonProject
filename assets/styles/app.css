@@ -109,6 +109,10 @@ body .test1
 .container_pokemon_details img{
     height: 240px;
 }
+.container_pokemon_details .img_Type{
+    width: 5%;
+    height: 100%;
+}
 .container_pokemon_details h1{
     text-transform: capitalize;
     margin-top: -1.5%;

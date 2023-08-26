@@ -40,7 +40,10 @@ class CallApiService
             $urlPokemon
         );
 
-        return $response->toArray();
+
+        $arrayOfData = $response->toArray();
+
+        return $arrayOfData["types"];
     }
 
     public function getLanguage(string $url)
