@@ -19,7 +19,6 @@
                     <th>Pokemon 5</th>
                     <th>Sprite 6</th>
                     <th>Pokemon 6</th>
-                      
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +45,8 @@
                     
                     <td><img src="{{ Equipe.Pokemon6Sprite }}"></td>
                     <td>{{Equipe.Pokemon6}}</td>
+
+                    <td><a href="{{ path('delete_equipe',{'id':Equipe.id} ) }}"><button>Supprimer</button></a></td>
                 </tr>
             {% endfor %}
                 

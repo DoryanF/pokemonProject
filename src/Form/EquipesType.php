@@ -17,26 +17,32 @@ class EquipesType extends AbstractType
             ->add('Pokemon1', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°1 : ',
             ])
             ->add('Pokemon2', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°2 : ',
             ])
             ->add('Pokemon3', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°3 : ',
             ])
             ->add('Pokemon4', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°4 : ',
             ])
             ->add('Pokemon5', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°5 : ',
             ])
             ->add('Pokemon6', EntityType::class, [
                 'placeholder' => 'Choisissez votre Pokemon',
                 'class' => Pokemons::class,
+                'label' => 'Pokemon n°6 : ',
             ])
         ;
     }
