@@ -85,8 +85,15 @@ class CallApiService
         $arrayOfData = $response->toArray();
         // dd($arrayOfData);
         $pokedexes = $arrayOfData['pokedexes'];
-        // dd($pokedexes);
-        // return $pokedexes['url'];
+
+        $urlPkdex = [];
+
+        foreach ($pokedexes as $pokedexUrl)
+        {
+            $urlPkdex[] = $pokedexUrl['url'];
+        }
+        // dd($urlPkdex);
+        return $urlPkdex;
     }
 
     public function getPokemons(string $urlPokedex)
@@ -144,7 +151,7 @@ class CallApiService
         {
             $test[] = $pokemons["pokemon_species"];
         }
-        // dd($test);
+        dd($test);
         return $test;
     }
 
@@ -197,7 +204,18 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        return $arrayOfData["effect_entries"];
+        // dd($arrayOfData);
+        $array = $arrayOfData["effect_entries"];
+        // dd($array);
+        $tabTemp = array();
+        foreach ($array as $data) {
+            if ($data["language"]["name"] == "en") {
+                array_push($tabTemp, $data["effect"]);
+            }
+        }
+
+        // dd($tabTemp);
+        return $tabTemp;
 
     }
 }

@@ -20,6 +20,16 @@ class ChoiceController extends AbstractController
         $jeu = $jeuxPkmnRepository->findOneBy(["id"=>$id]);
         $pokedexJeu = $jeu->getPokedex()->getPokemons()->getValues();
 
+        $temp = $callApiService->getVersionGroup($jeu->getApiUrl());
+
+        $temp2 = $callApiService->getPokedex($temp);
+
+        // foreach ($temp2 as $data)
+        // {
+        //     $temp3 = $callApiService->getPokemons($data);
+        //     dd($temp3);
+        // }
+        // dd($temp2);
         // dd($pokedexJeu);
         // $pokemonss = $pokedex->getPokemons()->getValues();
         // foreach ($pokemons as $pokemon) {

@@ -8,6 +8,7 @@ use App\Repository\TypeRepository;
 use App\Service\CallApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Length;
 
 class PokemonController extends AbstractController
 {
@@ -42,23 +43,33 @@ class PokemonController extends AbstractController
 
         $abilitiesResponse = $callApiService->getAbilitiesPokemon($pkmn->getApiUrl());
 
-        $tabAbilities = [];
-
+        $tabAbilities = [[]];
+        // dd($abilitiesResponse);
+        $tabEffectAbilities = [];
         foreach ($abilitiesResponse as $abilities)
         {
             // dd($abilities["ability"]["name"]);
             $tabAbilities[] = $abilities["ability"]["name"];
-            // $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
-            // dd($effectAbility[0]["effect"]);
-            // $tabAbilities[] = $effectAbility[1]["effect"];
+            $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
+            $tabAbilities[] = $effectAbility;
+            // dd($effectAbility);
         }
-        // dd($tabAbilities);
+
+        // for ($i=0; $i < count($tabAbilities); $i++) { 
+            
+        //     $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
+        //     $tabAbilities[$i] = $effectAbility;
+        // }
+
+        dd($tabAbilities);
+        // dd($tabEffectAbilities);
         return $this->render('pokemon-details.html.twig',[
             'pokemon' => $pkmn,
             'tabMove' => $response,
             'tabStat' => $tableauBaseStats,
             'type' => $imgType,
-            'tabAbilities' => $tabAbilities
+            'tabAbilities' => $tabAbilities,
+            'tabEffect' => $tabEffectAbilities
         ]);
     }
 }

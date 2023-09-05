@@ -24,9 +24,12 @@
     </div>
     <div>
         <h2>Abilities</h2>
+        <div>
         {% for ability in tabAbilities %}
-            <p>{{ability}}</p>
+            <h3>{{ability|capitalize }}</h3>
         {% endfor %}
+        
+        </div>
     </div>
 </div>
     <h2>Moves</h2>
