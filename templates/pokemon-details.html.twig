@@ -26,7 +26,8 @@
         <h2>Abilities</h2>
         <div>
         {% for ability in tabAbilities %}
-            <h3>{{ability|capitalize }}</h3>
+            <h3>{{ability["name"]|capitalize }}</h3>
+            <p>{{ability["effect_ability"][0]}}</p>
         {% endfor %}
         
         </div>

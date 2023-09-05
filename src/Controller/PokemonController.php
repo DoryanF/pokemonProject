@@ -43,33 +43,27 @@ class PokemonController extends AbstractController
 
         $abilitiesResponse = $callApiService->getAbilitiesPokemon($pkmn->getApiUrl());
 
-        $tabAbilities = [[]];
-        // dd($abilitiesResponse);
+        $tabAbilities = [];
+
         $tabEffectAbilities = [];
+        $i = 0;
         foreach ($abilitiesResponse as $abilities)
         {
-            // dd($abilities["ability"]["name"]);
-            $tabAbilities[] = $abilities["ability"]["name"];
-            $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
-            $tabAbilities[] = $effectAbility;
-            // dd($effectAbility);
+
+            $tabAbilities[$i]["name"] = $abilities["ability"]["name"];
+            $tabAbilities[$i]["effect_ability"] = $callApiService->getEffectAbility($abilities["ability"]["url"]);
+
+            $i++;
         }
 
-        // for ($i=0; $i < count($tabAbilities); $i++) { 
-            
-        //     $effectAbility = $callApiService->getEffectAbility($abilities["ability"]["url"]);
-        //     $tabAbilities[$i] = $effectAbility;
-        // }
+        // dd($tabAbilities);
 
-        dd($tabAbilities);
-        // dd($tabEffectAbilities);
         return $this->render('pokemon-details.html.twig',[
             'pokemon' => $pkmn,
             'tabMove' => $response,
             'tabStat' => $tableauBaseStats,
             'type' => $imgType,
             'tabAbilities' => $tabAbilities,
-            'tabEffect' => $tabEffectAbilities
         ]);
     }
 }

@@ -71,7 +71,6 @@ class CallApiService
             $url
         );
         $arrayOfData = $response->toArray();
-        // dd($arrayOfData);
         return $arrayOfData['version_group']['url'];
     }
 
@@ -83,7 +82,6 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        // dd($arrayOfData);
         $pokedexes = $arrayOfData['pokedexes'];
 
         $urlPkdex = [];
@@ -92,7 +90,6 @@ class CallApiService
         {
             $urlPkdex[] = $pokedexUrl['url'];
         }
-        // dd($urlPkdex);
         return $urlPkdex;
     }
 
@@ -164,7 +161,6 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        // dd($arrayOfData["moves"]);
 
         return $arrayOfData["moves"];
     }
@@ -177,9 +173,6 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-
-        // dd($arrayOfData["stats"]);
-
 
         return $arrayOfData["stats"];
     }
@@ -204,17 +197,17 @@ class CallApiService
         );
 
         $arrayOfData = $response->toArray();
-        // dd($arrayOfData);
+        
         $array = $arrayOfData["effect_entries"];
-        // dd($array);
+
         $tabTemp = array();
+
         foreach ($array as $data) {
             if ($data["language"]["name"] == "en") {
                 array_push($tabTemp, $data["effect"]);
             }
         }
 
-        // dd($tabTemp);
         return $tabTemp;
 
     }
